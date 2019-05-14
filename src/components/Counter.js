@@ -6,6 +6,15 @@ class Counter extends Component {
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
+
+        
+        if((this.props.count % 2) !== 0) {
+            this.props.increment();
+        } else {
+            console.log('not an odd number');
+        }
+
+        
     };
 
     incrementAsync = () => {
@@ -28,12 +37,12 @@ class Counter extends Component {
                 </button>
                  {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
-                {/* <button onClick={this.incrementIfOdd}>
+                <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
                 <button onClick={this.incrementAsync}>
                     Increment async
-                </button>  */}
+                </button> 
             </p>
         );
     }
@@ -46,7 +55,6 @@ class Counter extends Component {
 // redux application, though, it would receive only the relevant
 // parts it needs from the state object.
 const mapStateToProps = (state) => {
-    console.log('FROM MAP', state);
     return {
         count: state.count
     };
